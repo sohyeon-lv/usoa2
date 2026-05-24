@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>U-SOA Archive Year</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="archive">
+  <header class="site-header site-header--archive">
+    <a class="brand brand-link" href="index.html" aria-label="메인 페이지로 이동">
+  <div class="brand-mark" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <div class="brand-text">
+    <div class="brand-title">U-SOA</div>
+    <div class="brand-subtitle">UOU, School of Architecture</div>
+  </div>
+</a>
+
+    <button class="menu-button" type="button" aria-label="menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main class="archive-shell">
+    <section class="archive-hero">
+      <div class="archive-topline">
+        <div class="archive-kicker">Year Archive</div>
+
+        <nav class="archive-year-nav" aria-label="Year navigation">
+          <a class="archive-year-link" data-year="2023" href="archive.html?year=2023">2023</a>
+          <a class="archive-year-link" data-year="2024" href="archive.html?year=2024">2024</a>
+          <a class="archive-year-link" data-year="2025" href="archive.html?year=2025">2025</a>
+          <a class="archive-year-link" data-year="2026" href="archive.html?year=2026">2026</a>
+        </nav>
+      </div>
+
+      <div>
+        <h1 class="archive-title">Exhibition <span id="archive-year">2023</span></h1>
+      </div>
+
+      <p class="archive-description" id="archive-description">
+        2023년도 작품 아카이브 목업. 연도별 작품 목록이 어떻게 보일지 확인하기 위한 임시 시안이다.
+      </p>
+
+      <div class="archive-meta-row">
+        <span class="archive-chip">제목</span>
+        <span class="archive-chip">이름</span>
+        <span class="archive-chip">학년</span>
+        <span class="archive-chip">프로젝트명</span>
+      </div>
+    </section>
+
+    <section class="archive-grid-section">
+      <div class="archive-grid" id="archive-grid"></div>
+      <p class="archive-note">
+        현재 버전은 구조 확인용 목업이다. 실제 카테고리, 검색, 필터, 상세페이지는 이후 단계에서 추가하면 된다.
+      </p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
