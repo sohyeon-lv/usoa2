@@ -3,62 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>U-SOA Archive Year</title>
+  <title>U-SOA Archive Board</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="archive">
-  <header class="site-header site-header--archive">
+<body class="archive archive-minimal">
+  <header class="minimal-topbar">
     <a class="brand brand-link" href="index.html" aria-label="메인 페이지로 이동">
-  <div class="brand-mark" aria-hidden="true">
-    <span></span><span></span><span></span><span></span>
-  </div>
-  <div class="brand-text">
-    <div class="brand-title">U-SOA</div>
-    <div class="brand-subtitle">UOU, School of Architecture</div>
-  </div>
-</a>
-
-    <button class="menu-button" type="button" aria-label="menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <div class="brand-mark" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="brand-text">
+        <div class="brand-title">U-SOA</div>
+        <div class="brand-subtitle">UOU, School of Architecture</div>
+      </div>
+    </a>
   </header>
 
-  <main class="archive-shell">
-    <section class="archive-hero">
-      <div class="archive-topline">
-        <div class="archive-kicker">Year Archive</div>
+  <main class="minimal-shell">
+    <aside class="year-rail" aria-label="년도 이동">
+      <a class="year-rail-link" data-year="2023" href="archive.html?year=2023">2023</a>
+      <a class="year-rail-link" data-year="2024" href="archive.html?year=2024">2024</a>
+      <a class="year-rail-link" data-year="2025" href="archive.html?year=2025">2025</a>
+      <a class="year-rail-link" data-year="2026" href="archive.html?year=2026">2026</a>
+    </aside>
 
-        <nav class="archive-year-nav" aria-label="Year navigation">
-          <a class="archive-year-link" data-year="2023" href="archive.html?year=2023">2023</a>
-          <a class="archive-year-link" data-year="2024" href="archive.html?year=2024">2024</a>
-          <a class="archive-year-link" data-year="2025" href="archive.html?year=2025">2025</a>
-          <a class="archive-year-link" data-year="2026" href="archive.html?year=2026">2026</a>
-        </nav>
-      </div>
+    <section class="tile-stage" id="tile-stage" aria-label="작품 아카이브 보드">
+      <article class="tile tile-a is-color" data-tile="a" tabindex="0" style="--tile-color:#d9ddd8;">
+        <div class="tile-inner">
+          <div class="tile-kicker"><span class="js-current-year">2026</span> / archive</div>
+          <h2 class="tile-title">Quiet Panel</h2>
+          <p class="tile-meta">학생 A · 1학년 · Studio 01</p>
+        </div>
+      </article>
 
-      <div>
-        <h1 class="archive-title">Exhibition <span id="archive-year">2023</span></h1>
-      </div>
+      <article class="tile tile-b is-color" data-tile="b" tabindex="0" style="--tile-color:#d1d7d0;">
+        <div class="tile-inner">
+          <div class="tile-kicker">structure / note</div>
+          <h2 class="tile-title">Vertical File</h2>
+          <p class="tile-meta">학생 B · 2학년 · Structure + Drawing</p>
+        </div>
+      </article>
 
-      <p class="archive-description" id="archive-description">
-        2023년도 작품 아카이브 목업. 연도별 작품 목록이 어떻게 보일지 확인하기 위한 임시 시안이다.
-      </p>
+      <article
+        class="tile tile-c is-image"
+        data-tile="c"
+        data-current-image="true"
+        tabindex="0"
+        style="--tile-image:url('2026.jpg'); --tile-color:#c9d1cb;"
+      >
+        <div class="tile-inner">
+          <div class="tile-kicker"><span class="js-current-year">2026</span> / selected</div>
+          <h2 class="tile-title">Main Work</h2>
+          <p class="tile-meta">학생 C · 2학년 · Main Studio</p>
+        </div>
+      </article>
 
-      <div class="archive-meta-row">
-        <span class="archive-chip">제목</span>
-        <span class="archive-chip">이름</span>
-        <span class="archive-chip">학년</span>
-        <span class="archive-chip">프로젝트명</span>
-      </div>
-    </section>
+      <article class="tile tile-d is-color" data-tile="d" tabindex="0" style="--tile-color:#d8d6cf;">
+        <div class="tile-inner">
+          <div class="tile-kicker">outline / board</div>
+          <h2 class="tile-title">Upper Frame</h2>
+          <p class="tile-meta">학생 D · 3학년 · Studio 03</p>
+        </div>
+      </article>
 
-    <section class="archive-grid-section">
-      <div class="archive-grid" id="archive-grid"></div>
-      <p class="archive-note">
-        현재 버전은 구조 확인용 목업이다. 실제 카테고리, 검색, 필터, 상세페이지는 이후 단계에서 추가하면 된다.
-      </p>
+      <article
+        class="tile tile-e is-image"
+        data-tile="e"
+        tabindex="0"
+        style="--tile-image:url('2024.jpg'); --tile-color:#c8d0d8;"
+      >
+        <div class="tile-inner">
+          <div class="tile-kicker">image / fragment</div>
+          <h2 class="tile-title">Site View</h2>
+          <p class="tile-meta">학생 E · 3학년 · Urban Studio</p>
+        </div>
+      </article>
+
+      <article class="tile tile-f is-color" data-tile="f" tabindex="0" style="--tile-color:#d4d8d2;">
+        <div class="tile-inner">
+          <div class="tile-kicker">event / archive</div>
+          <h2 class="tile-title">Narrow Block</h2>
+          <p class="tile-meta">학생 F · 4학년 · Seminar</p>
+        </div>
+      </article>
+
+      <article
+        class="tile tile-g is-image"
+        data-tile="g"
+        tabindex="0"
+        style="--tile-image:url('2025.jpg'); --tile-color:#c5cfd7;"
+      >
+        <div class="tile-inner">
+          <div class="tile-kicker">image / model</div>
+          <h2 class="tile-title">Large Archive</h2>
+          <p class="tile-meta">학생 G · 4학년 · Graduation Studio</p>
+        </div>
+      </article>
+
+      <article class="tile tile-h is-color" data-tile="h" tabindex="0" style="--tile-color:#dcd9d2;">
+        <div class="tile-inner">
+          <div class="tile-kicker">small / index</div>
+          <h2 class="tile-title">Lower Note</h2>
+          <p class="tile-meta">학생 H · 1학년 · Basic Studio</p>
+        </div>
+      </article>
+
+      <article class="tile tile-i is-color" data-tile="i" tabindex="0" style="--tile-color:#d7dbd6;">
+        <div class="tile-inner">
+          <div class="tile-kicker">text / line</div>
+          <h2 class="tile-title">Long Caption</h2>
+          <p class="tile-meta">학생 I · 2학년 · Archive Workshop</p>
+        </div>
+      </article>
     </section>
   </main>
 
