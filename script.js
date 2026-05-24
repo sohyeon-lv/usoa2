@@ -85,44 +85,111 @@ function initHomePage() {
 }
 
 function buildMockCards(year) {
-  return mockTitles.map((title, index) => {
-    const grade = mockGrades[(index + Number(year)) % mockGrades.length];
-    const studio = mockStudios[index % mockStudios.length];
-    const patternClasses = ["pattern-a", "pattern-b", "pattern-c", "pattern-d"];
-    const patternClass = patternClasses[index % patternClasses.length];
+  const tiles = [
+    {
+      kicker: `${year} archive`,
+      title: "Selected Works",
+      meta: "연도별 대표 작업을 먼저 보여주는 큰 이미지 타일",
+      size: "span-7 row-4",
+      expand: "expand-right",
+      image: `${year}.jpg`,
+      tone: "#bec8c4"
+    },
+    {
+      kicker: "Section A",
+      title: "1st Grade",
+      meta: "기초설계 / 드로잉 / 모델링",
+      size: "span-3 row-2",
+      expand: "expand-down",
+      color: "#d8ddd8"
+    },
+    {
+      kicker: "Section B",
+      title: "2nd Grade",
+      meta: "주택 / 도시 / 공공성",
+      size: "span-2 row-2",
+      expand: "expand-left",
+      color: "#d2d7de"
+    },
+    {
+      kicker: "Image Tile",
+      title: "Studio View",
+      meta: "임시 이미지 블록",
+      size: "span-3 row-3",
+      expand: "expand-up",
+      image: "2024.jpg",
+      tone: "#c9c4bb"
+    },
+    {
+      kicker: "Keyword",
+      title: "Archive",
+      meta: "기록 / 전시 / 구조 / 감각",
+      size: "span-2 row-3",
+      expand: "expand-right",
+      color: "#d8d2ca"
+    },
+    {
+      kicker: "Section C",
+      title: "3rd Grade",
+      meta: "스튜디오 / 프로젝트 / 리서치",
+      size: "span-4 row-2",
+      expand: "expand-left",
+      color: "#c9d7d3"
+    },
+    {
+      kicker: "Image Tile",
+      title: "Model + Drawing",
+      meta: "이미지가 들어가는 작은 타일",
+      size: "span-4 row-3",
+      expand: "expand-down",
+      image: "2025.jpg",
+      tone: "#b8c6d2"
+    },
+    {
+      kicker: "Section D",
+      title: "4th Grade",
+      meta: "심화설계 / 졸업설계 / 아카이빙",
+      size: "span-3 row-2",
+      expand: "expand-up",
+      color: "#d7d7cf"
+    },
+    {
+      kicker: "Text Block",
+      title: "Department Archive",
+      meta: "모든 블록에 이미지를 넣지 않고, 일부는 정보와 여백을 위한 컬러 타일로 둔다.",
+      size: "span-5 row-2",
+      expand: "expand-right",
+      color: "#e1ddd6"
+    },
+    {
+      kicker: "Section E",
+      title: "Events",
+      meta: "전시 / 행사 / 기록물",
+      size: "span-3 row-2",
+      expand: "expand-left",
+      color: "#cfd5cf"
+    }
+  ];
 
-    const thumbColors = [
-      ["#8fa7a1", "#3e4a47"],
-      ["#b7b4a8", "#555148"],
-      ["#b7c4d3", "#465665"],
-      ["#b2b8aa", "#4b5145"],
-      ["#c8b7ad", "#66524b"],
-      ["#97b8b0", "#35524d"],
-      ["#9ca6b8", "#4b5566"],
-      ["#c1c1ba", "#66665f"],
-      ["#94aa9a", "#3f5245"]
-    ];
+  return tiles
+    .map((tile, index) => {
+      const classes = `stack-tile ${tile.size} ${tile.expand} ${tile.image ? "is-image" : "is-color"}`;
+      const style = tile.image
+        ? `--tile-image: url('${tile.image}'); --tile-bg: ${tile.tone || "#cfcfcf"};`
+        : `--tile-bg: ${tile.color || "#d9d9d9"};`;
 
-    const [soft, dark] = thumbColors[index % thumbColors.length];
-
-    return `
-      <article class="archive-card">
-        <div
-          class="card-thumb ${patternClass}"
-          data-label="${year} Project ${String(index + 1).padStart(2, "0")}"
-          style="--thumb-soft: ${soft}; --thumb-dark: ${dark};"
-        ></div>
-        <div class="card-body">
-          <h3 class="card-title">${title}</h3>
-          <div class="card-meta">
-            <span><strong>이름</strong> ${mockNames[index]}</span>
-            <span><strong>학년</strong> ${grade}</span>
-            <span><strong>프로젝트명</strong> ${studio}</span>
+      return `
+        <article class="${classes}" style="${style}">
+          <div class="stack-inner">
+            <div class="stack-kicker">${tile.kicker}</div>
+            <h3 class="stack-title">${tile.title}</h3>
+            <p class="stack-meta">${tile.meta}</p>
           </div>
-        </div>
-      </article>
-    `;
-  }).join("");
+          <div class="stack-index">${String(index + 1).padStart(2, "0")}</div>
+        </article>
+      `;
+    })
+    .join("");
 }
 
 function initArchivePage() {
