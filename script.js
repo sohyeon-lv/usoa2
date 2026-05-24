@@ -223,3 +223,61 @@ document.addEventListener("DOMContentLoaded", () => {
     initArchivePage();
   }
 });
+
+function initMinimalArchivePrototype() {
+  const stage = document.getElementById("tile-stage");
+  if (!stage) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const currentYear = params.get("year") || "2026";
+
+  document.querySelectorAll(".year-rail-link").forEach((link) => {
+    link.classList.toggle("is-current", link.dataset.year === currentYear);
+  });
+
+  document.querySelectorAll(".js-current-year").forEach((el) => {
+    el.textContent = currentYear;
+  });
+
+  document.querySelectorAll("[data-current-image='true']").forEach((el) => {
+    el.style.setProperty("--tile-image", `url('${currentYear}.jpg')`);
+  });
+
+  const tiles = stage.querySelectorAll(".tile");
+
+  function clearActive() {
+    stage.dataset.active = "";
+    tiles.forEach((tile) => tile.classList.remove("is-active"));
+  }
+
+  tiles.forEach((tile) => {
+    const tileId = tile.dataset.tile;
+
+    tile.addEventListener("mouseenter", () => {
+      stage.dataset.active = tileId;
+      tiles.forEach((item) => item.classList.remove("is-active"));
+      tile.classList.add("is-active");
+    });
+
+    tile.addEventListener("focus", () => {
+      stage.dataset.active = tileId;
+      tiles.forEach((item) => item.classList.remove("is-active"));
+      tile.classList.add("is-active");
+    });
+  });
+
+  stage.addEventListener("mouseleave", clearActive);
+
+  tiles.forEach((tile) => {
+    tile.addEventListener("blur", () => {
+      window.setTimeout(() => {
+        const stillFocusedInsideStage = stage.contains(document.activeElement);
+        if (!stillFocusedInsideStage) {
+          clearActive();
+        }
+      }, 0);
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", initMinimalArchivePrototype);
